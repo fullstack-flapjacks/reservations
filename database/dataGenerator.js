@@ -4,7 +4,7 @@ This js file initializes random restaurant availability data that will be seeded
 */
 
 var availabilityData = [];
-var bookingData = [];
+var bookingsData = [];
 
 //generate a random number between two values inclusive
 function randomInt(min, max) {
@@ -58,15 +58,15 @@ var generateRandomRestaurantData = function generateRandomRestaurantData() {
       initializeBookings(bookings, day);
     }
     availabilityData.push(restaurant); //push restaurant object into raw data array
-    bookingData.push(bookings);
+    bookingsData.push(bookings);
   }
 }
 
 generateRandomRestaurantData();
 
-console.log(availabilityData[1]);
-console.log(bookingData[2]);
+//console.log(availabilityData[1]);
+//console.log(bookingsData[2]);
 
+module.exports.availabilityData = availabilityData;
+module.exports.bookingsData = bookingsData;
 
-
-module.exports.availability = availabilityData;
