@@ -7,7 +7,8 @@ const availabilitySchema = mongoose.Schema({
   id: Number,
   availability: [{
     day: Number,
-    time: Number,
+    hour: Number,
+    minute: Number
   }],
 });
 
