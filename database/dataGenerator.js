@@ -64,9 +64,14 @@ var generateRandomRestaurantData = function generateRandomRestaurantData() {
 
 generateRandomRestaurantData();
 
-//console.log(availabilityData[1]);
-//console.log(bookingsData[2]);
-
 module.exports.availabilityData = availabilityData;
 module.exports.bookingsData = bookingsData;
+
+//for testing
+
+module.exports.randomMinutes = randomMinutes;
+module.exports.randomInt = randomInt;
+module.exports.generateRandomTimeSlots = generateRandomTimeSlots;
+
+
 
