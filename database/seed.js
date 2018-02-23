@@ -1,37 +1,11 @@
 const mongoose = require('mongoose'); // include DB object
 const seed = require('./dataGenerator');
+const models = require('./dbModels');
 
 mongoose.connect('mongodb://localhost/restaurants');
 
-const availabilitySchema = mongoose.Schema({
-  id: {type:Number, unique: true},
-  availability: [{
-    day: Number,
-    hour: Number,
-    minute: Number
-  }],
-});
-
-const bookingsSchema = mongoose.Schema({
-  id: {type:Number, unique: true},
-  bookings: [{
-    day: Number,
-    bookings_count: Number
-  }],
-});
-
-let Availability = mongoose.model('Reservations', availabilitySchema);
-let Bookings = mongoose.model('Bookings', bookingsSchema);
-
-//clear the collections / table
-
-// Availability.remove({}, function(err) { 
-//    console.log('Availability collection removed') 
-// });
-
-// Bookings.remove({}, function(err) { 
-//    console.log('Availability collection removed');
-// });
+let Availability = models.availability;
+let Bookings = models.bookings;
 
 
 Availability.create(seed.availabilityData, (err, entries)=>{
@@ -49,8 +23,8 @@ Bookings.create(seed.bookingsData, (err, entries)=>{
     return;
   }
   console.log('Successfully seeded bookings count data', entries);
-
 });
+
 
 
 
