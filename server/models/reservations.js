@@ -10,7 +10,7 @@ const findInDb = function findInDb(model, id, res, callback){
     if (err || result[0] === undefined){
       console.log('Error retrieving data', err || 'no results from DB');
       res.status(500).send(err);
-      return;
+      //return;
     }
     callback(result[0]);
   });
