@@ -3,25 +3,27 @@ const models = require('../../database/dbModels');
 
 mongoose.connect('mongodb://localhost/restaurants');
 
-let Availability = models.availability;
-let Bookings = models.bookings;
-
-const reservations = function reservations(id, req, res){
-
-  Availability.find({id:id}, (err, result) => {
+//searches a DB Model for particular id, and invokes callback on it
+const findInDb = function findInDb(model, id, callback){
+  model.find({id:id}, (err, result)=>{
     if (err){
-      console.log('Error retrieving availbility times', err);
+      console.log('Error retrieving data', err);
       res.status(500).send(err);
       return;
     }
-
-    res.send(result[0].availability);
+    callback(result[0]);
   });
 }
 
-const bookings = function bookings(){
-  
+//Query db for specific restaurant availability times
+const reservations = function reservations(id, callback){
+  findInDb(models.availability, id, callback);
 }
 
-module.exports.times = reservations;
-module.exports.bookingCount = bookings;
+//Query db for specific restaurant booking times
+const bookings = function bookings(id, callback){
+  findInDb(models.bookings, id, callback);
+}
+
+module.exports.availability = reservations;
+module.exports.bookings = bookings;
