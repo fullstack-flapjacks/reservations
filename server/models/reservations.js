@@ -28,3 +28,4 @@ const bookingsCount = function bookingsCount(id, res, callback){
 
 module.exports.availability = availability;
 module.exports.bookings = bookingsCount;
+
