@@ -10,7 +10,7 @@ const findInDb = function findInDb(model, id, callback){
     if (err){
       console.log('Error retrieving data', err);
       res.status(500).send(err);
-      //return;
+      return;
     }
     callback(result[0]);
   });
