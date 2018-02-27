@@ -5,6 +5,7 @@ const reservations = require('./models/reservations');
 
 //Route requests for specific restaurant availability
 router.get('/:id/reservations', (req,res)=>{
+
   reservations.availability(req.params.id, res, (data)=>{
     //send back table availability times
     res.send(data.availability); 
