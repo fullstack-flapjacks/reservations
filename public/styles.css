@@ -10,16 +10,25 @@
   margin-top: 10px;
 }
 
-.party-size{
+.party-size, .datepicker{
   font-size: 14px;
-  width: 350px;
   border: none;
   border-bottom: 2px solid;
   border-radius: 0;
   -webkit-appearance: none;
 }
 
-.form-party-size{
+.party-size{
+  width: 350px;
+}
+
+.datepicker{
+  width: 150px;
+  height: 30px;
+}
+
+.form-party-size, .form-datepicker{
+  margin-top:5px;
   font-weight: bold;
   font-size: 14px;
 }
