@@ -1,0 +1,25 @@
+.header{
+  font-weight: bold;
+  text-align: center;
+}
+
+.reservation-widget{
+  border: solid 2px;
+  border-color: #DA3743;
+  width: 400px;
+  margin-top: 10px;
+}
+
+.party-size{
+  font-size: 14px;
+  width: 350px;
+  border: none;
+  border-bottom: 2px solid;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.form-party-size{
+  font-weight: bold;
+  font-size: 14px;
+}
