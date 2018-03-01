@@ -37,7 +37,7 @@ class App extends React.Component {
       contentType: 'application/json',
       data: JSON.stringify(this.state),
       success: (data)=>{
-        console.log('Success! Data was Received:', data);
+        console.log('Success! Data was received:', data);
       },
       error: (error)=>{
         console.log('Error! Data was NOT received:', error);

@@ -14,16 +14,20 @@ router.get('/:id/reservations', (req,res)=>{
   //parse request params from URL
   var requestedTimes = JSON.parse(decodeURIComponent(url.parse(req.url).query));
 
-  //extract day from date property
-  var day = new Date(requestedTimes.date);
-  day = day.getUTCDate();
-
+  //extract day & time from date property
+  var day = (new Date(requestedTimes.date)).getUTCDate();
   var time = requestedTimes.time;
-
+  
+  var hour = +time.split(':')[0]; //extract hour from time property
+  
   reservations.availability(req.params.id, res, (data)=>{
 
     var availability = data.availability;
-    var times = availability.filter(table=> table.day === day)
+    var times = availability.filter(table=> {
+  
+      return ((table.day === day) && ((hour+1 >= table.hour) && (table.hour >= hour-1)));
+
+    })
     //send back table availability times
     res.send(times); 
   });
