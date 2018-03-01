@@ -9,6 +9,7 @@
   margin-top: 10px;
   box-shadow: 0px 0px 15px lightgrey;
   font-family: sans-serif;
+  padding-bottom: 8px
 }
 
 .party-size, .datepicker, .timeselector{

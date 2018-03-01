@@ -17,7 +17,7 @@ var timeCreator = ()=>{
       hour = 12;
     }
 
-    times.push({hour: String(hour), minutes:'00', ampm: ampm}, {hour: String(hour), minutes:'30',ampm: ampm});
+    times.push({hour: String(hour), minutes:'00', ampm: ampm, militaryHour:i }, {hour: String(hour), minutes:'30',ampm: ampm, militaryHour:i});
   }
   return times;
 };
@@ -26,7 +26,7 @@ class TimeSelector extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      time: '10:30AM'
+      time: '20:00' //default time
     }
   }
 
@@ -41,8 +41,14 @@ class TimeSelector extends React.Component {
   render(){
     return(<div>
             <label for="timeselector" className="form-timeselector">Time</label>
-              <select value={this.state.time} onChange={(event)=>{this.handleChange(event); this.props.changeTime(event.target.value)}} className="custom-select timeselector" id="timeselector">
-                {timeCreator().map((val)=>(<option value={val.hour+":"+val.minutes+val.ampm}> {`${val.hour}:${val.minutes} ${val.ampm}`} </option>))}
+              <select value={this.state.time} 
+                      onChange={(event)=>{
+                          this.handleChange(event); 
+                          this.props.changeTime(event.target.value)
+                        }
+                      } 
+                      className="custom-select timeselector" id="timeselector">
+                {timeCreator().map((val)=>(<option value={val.militaryHour+":"+val.minutes}> {`${val.hour}:${val.minutes} ${val.ampm}`} </option>))}
               </select>
           </div>);
 
