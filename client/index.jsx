@@ -8,6 +8,12 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 
 class App extends React.Component {
+  
+  constructor(props){
+    super(props);
+  }
+
+
   render () {
     return (<div className="container reservation-widget">
               <h5 className="header">Make a Reservation</h5>
