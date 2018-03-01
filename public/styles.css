@@ -16,6 +16,7 @@
   font-size: 14px;
   border: none;
   border-bottom: 2px solid;
+  border-color: #E1E1E1;
   border-radius: 0;
   -webkit-appearance: none;
 }
@@ -44,7 +45,7 @@
   font-size: 14px;
 }
 
-label.form-datepicker, label.form-timeselector{
+label.form-datepicker, label.form-timeselector, label.form-party-size{
   margin-top: 12px;
   height: 3px;
 }
@@ -64,6 +65,7 @@ select#timeselector, input#datepicker, select#party-size{
   margin: 5px 0px;
   color: white;
   height: 40px;
+  font-weight: bold;
 }
 
 .findtable:hover{
