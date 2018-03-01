@@ -13,14 +13,11 @@ var Availability = (props)=>{
 
     return (<div className="slots">
              {props.tables.map(table =><div className="table"> {`${table.hour}:${table.minute}`} </div>)}
-
-
-
            </div>)
 
   }
 
-  return (<div className="slots"> Sorry! No tables available - check with Wayne :) </div>)
+  return (<div className="slots"> Sorry! No tables available :( </div>)
 
 }
 
