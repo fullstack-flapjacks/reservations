@@ -1,7 +1,10 @@
 .header{
   font-weight: bold;
   text-align: center;
-  padding-top: 8px
+  padding-top: 8px;
+  border-bottom: 1px solid;
+  border-color: #E1E1E1;
+  padding-bottom: 7px
 }
 
 .reservation-widget{
@@ -15,7 +18,7 @@
 .party-size, .datepicker, .timeselector{
   font-size: 14px;
   border: none;
-  border-bottom: 2px solid;
+  border-bottom: 1px solid;
   border-color: #E1E1E1;
   border-radius: 0;
   -webkit-appearance: none;

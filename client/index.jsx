@@ -50,7 +50,7 @@ class App extends React.Component {
 
   render () {
     return (<div className="container reservation-widget">
-              <h5 className="header">Make a Reservation</h5>
+              <h5 className="header"><span>Make a Reservation</span></h5>
                 <form>
                   <div class="form-group">
                     <PartySelector />
