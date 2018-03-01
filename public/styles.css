@@ -20,6 +20,11 @@
   -webkit-appearance: none;
 }
 
+.party-size:hover, .datepicker:hover, .timeselector:hover{
+  cursor: pointer;
+  border-color: #DA3743;
+}
+
 .party-size{
   width: 100%;
 }
