@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import PartySelector from './components/PartySelector';
 import DatePicker from './components/DatePicker';
 import TimeSelector from './components/TimeSelector';
+import Availability from './components/Availability';
 import $ from 'jquery';
 
 window.$ = window.jQuery = $;
@@ -15,7 +16,8 @@ class App extends React.Component {
     //updateTime & updateDate called via DatePicker/TimeSelector components to initialize values
     this.state = {
       time: null, 
-      date: null
+      date: null,
+      availability: []
     }
   }
 
@@ -38,6 +40,7 @@ class App extends React.Component {
       data: JSON.stringify(this.state),
       success: (data)=>{
         console.log('Success! Data was received:', data);
+        this.setState({availability:data});
       },
       error: (error)=>{
         console.log('Error! Data was NOT received:', error);
@@ -46,7 +49,6 @@ class App extends React.Component {
     });   
 
   }
-
 
   render () {
     return (<div className="container reservation-widget">
@@ -61,6 +63,7 @@ class App extends React.Component {
                   </div>
                   <button className="findtable" onClick={this.fetchTimes.bind(this)}>Find a Table</button>
                 </form>
+                <Availability tables={this.state.availability}/>
             </div>);
   }
 }
