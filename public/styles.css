@@ -8,7 +8,7 @@
 }
 
 .reservation-widget{
-  width: 340px;
+  width: 300px;
   margin-top: 10px;
   box-shadow: 0px 0px 15px lightgrey;
   font-family: sans-serif;
@@ -35,7 +35,7 @@
 }
 
 .datepicker, .timeselector{
-  width: 140px;
+  width: 120px;
   height: 30px;
 }
 
@@ -67,14 +67,42 @@ select#timeselector, input#datepicker, select#party-size{
   text-align: center;
   width: 100%;
   margin: 5px 0px;
+  margin-bottom: 12px;
   color: white;
   height: 55px;
   font-weight: bold;
+  border-radius: 2px;
 }
 
 .findtable:hover{
   background-color: #c4313c;
   cursor: pointer;
+}
+
+.slots{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.table{
+  text-align: center;
+  background-color: #DA3743;
+  color: white;
+  margin-bottom: 8px;
+  margin-right: 12px;
+  border-radius: 2px;
+  padding: 0 0.25rem;
+  height: 32px;
+  line-height: 32px;
+  width: 75px;
+  font-size: 15px;
+}
+
+.table:hover{
+  background-color: #c4313c;
+  cursor: pointer;
+
 }
 
 
