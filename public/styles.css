@@ -68,7 +68,7 @@ select#timeselector, input#datepicker, select#party-size{
   width: 100%;
   margin-bottom: 14px;
   color: white;
-  height: 55px;
+  height: 50px;
   font-weight: bold;
   border-radius: 2px;
 }

@@ -1,5 +1,18 @@
 import React from 'react';
 
+const sortByTime = (a, b)=>{
+
+  //if hours are equal sort by minutes
+  if (a.hour === b.hour){
+    return a.minute - b.minute;
+  }
+
+  //sort by hours
+  return a.hour - b.hour;
+
+}
+
+
 const militaryTimeConverter = (times)=>{
   
   return times.map((time)=>{
@@ -31,14 +44,15 @@ const militaryTimeConverter = (times)=>{
 
 var Availability = (props)=>{
   
-  let available = props.tables.length > 0; //check if there are available tables
+  let showTables = props.tables.length > 0; //check if there are available tables
 
-  if (available){
-
-    available = militaryTimeConverter(props.tables); //add AM/PM strings for user friendly display on reservation widget
+  if (showTables){
+    
+    let available = militaryTimeConverter(props.tables); //add AM/PM strings for user friendly display on reservation widget
+    available.sort(sortByTime); //sort array in place by times;
 
     return (<div className="slots">
-             {props.tables.map(table =><div className="table"> {`${table.time}`} </div>)}
+             {available.map(table =><div className="table"> {`${table.time}`} </div>)}
            </div>)
   }
 
