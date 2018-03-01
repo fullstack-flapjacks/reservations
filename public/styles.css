@@ -5,8 +5,6 @@
 }
 
 .reservation-widget{
- /* border: solid 2px;
-  border-color: #DA3743; */
   width: 400px;
   margin-top: 10px;
   box-shadow: 0px 0px 15px lightgrey;
@@ -36,7 +34,7 @@
 }
 
 .timeselector, .form-timeselector{
-  margin-left: 23px;
+  margin-left: 29px;
 }
 
 .form-party-size, .form-datepicker, .form-timeselector{
