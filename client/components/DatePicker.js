@@ -9,6 +9,10 @@ class DatePicker extends React.Component {
       date: (new Date()).toLocaleDateString()
     }
   }
+
+  componentWillMount(){
+    this.props.changeDate(this.state.date);
+  }
  
   handleChange(event){
     this.setState({date: event.target.value });
@@ -21,7 +25,7 @@ class DatePicker extends React.Component {
 
     return(<div>
             <label for="datepicker" className="form-datepicker"> Date </label>
-                <input value={this.state.date} onClick={this.handleChange.bind(this)} className="custom-select datepicker" id="datepicker"/>
+                <input value={this.state.date} onClick={(event)=>{this.handleChange(event); this.props.changeDate(event.target.value)}} className="custom-select datepicker" id="datepicker"/>
           </div>);
   }
 

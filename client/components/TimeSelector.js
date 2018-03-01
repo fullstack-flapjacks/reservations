@@ -30,6 +30,10 @@ class TimeSelector extends React.Component {
     }
   }
 
+  componentWillMount(){
+    this.props.changeTime(this.state.time);
+  }
+
   handleChange(event){
     this.setState({time: event.target.value});
   }
@@ -37,7 +41,7 @@ class TimeSelector extends React.Component {
   render(){
     return(<div>
             <label for="timeselector" className="form-timeselector">Time</label>
-              <select value={this.state.time} onChange={this.handleChange.bind(this)} className="custom-select timeselector" id="timeselector">
+              <select value={this.state.time} onChange={(event)=>{this.handleChange(event); this.props.changeTime(event.target.value)}} className="custom-select timeselector" id="timeselector">
                 {timeCreator().map((val)=>(<option value={val.hour+":"+val.minutes+val.ampm}> {`${val.hour}:${val.minutes} ${val.ampm}`} </option>))}
               </select>
           </div>);
