@@ -3,6 +3,7 @@ const app = express();
 const path = require('path')
 const restaurantRouter = require('./restaurantRouter');
 
+//show basic widget on index.html
 app.use(express.static('public'));
 
 app.use('/r', restaurantRouter);

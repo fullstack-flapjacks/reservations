@@ -3,6 +3,9 @@ const app = express();
 const router = express.Router();
 const reservations = require('./models/reservations');
 
+//display widget to all restaurant_id specific endpoints
+router.use('/:id', express.static('public'));
+
 //Route requests for specific restaurant availability
 router.get('/:id/reservations', (req,res)=>{
 
