@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import PartySelector from './components/PartySelector';
 import DatePicker from './components/DatePicker';
+import TimeSelector from './components/TimeSelector'
 import $ from 'jquery';
 
 window.$ = window.jQuery = $;
@@ -13,7 +14,10 @@ class App extends React.Component {
                 <form>
                   <div class="form-group">
                     <PartySelector />
-                    <DatePicker />
+                    <div className="picker">
+                      <DatePicker />
+                      <TimeSelector />
+                    </div>
                   </div>
                 </form>
             </div>);

@@ -9,9 +9,9 @@ var DatePicker = ()=>{
 
   return(<div>
           <label for="datepicker" className="form-datepicker">Date</label>
-            <div>
+            
               <input className="custom-select datepicker" id="datepicker"/>
-            </div>
+            
         </div>);
 
 }
