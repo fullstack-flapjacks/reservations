@@ -17,7 +17,8 @@ class App extends React.Component {
     this.state = {
       time: null, 
       date: null,
-      availability: []
+      availability: [],
+      showTables: false
     }
   }
 
@@ -40,7 +41,7 @@ class App extends React.Component {
       data: JSON.stringify(this.state),
       success: (data)=>{
         console.log('Success! Data was received:', data);
-        this.setState({availability:data});
+        this.setState({availability:data, showTables:true});
       },
       error: (error)=>{
         console.log('Error! Data was NOT received:', error);
@@ -63,7 +64,7 @@ class App extends React.Component {
                   </div>
                   <button className="findtable" onClick={this.fetchTimes.bind(this)}>Find a Table</button>
                 </form>
-                <Availability tables={this.state.availability}/>
+                {this.state.showTables && <Availability tables={this.state.availability}/>}
             </div>);
   }
 }

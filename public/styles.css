@@ -66,8 +66,7 @@ select#timeselector, input#datepicker, select#party-size{
   background-color: #DA3743;
   text-align: center;
   width: 100%;
-  margin: 5px 0px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: white;
   height: 55px;
   font-weight: bold;
