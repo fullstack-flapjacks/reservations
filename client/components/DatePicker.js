@@ -1,18 +1,29 @@
 import React from 'react';
 import "jquery-ui/ui/widgets/datepicker";
 
-var DatePicker = ()=>{
+class DatePicker extends React.Component {
 
-  $(function(){
-    $('#datepicker').datepicker();
-  });
+  constructor(props){
+    super(props);
+    this.state = {
+      date: (new Date()).toLocaleDateString()
+    }
+  }
+ 
+  handleChange(event){
+    this.setState({date: event.target.value });
+  }
 
-  return(<div>
-          <label for="datepicker" className="form-datepicker">Date</label>
-            
-              <input className="custom-select datepicker" id="datepicker"/>
-            
-        </div>);
+  render(){
+    $(function(){
+      $('#datepicker').datepicker();
+    });
+
+    return(<div>
+            <label for="datepicker" className="form-datepicker"> Date </label>
+                <input value={this.state.date} onClick={this.handleChange.bind(this)} className="custom-select datepicker" id="datepicker"/>
+          </div>);
+  }
 
 }
 
