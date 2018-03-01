@@ -19,6 +19,7 @@ class App extends React.Component {
                       <TimeSelector />
                     </div>
                   </div>
+                  <button className="findtable">Find a Table</button>
                 </form>
             </div>);
   }
