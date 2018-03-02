@@ -79,7 +79,7 @@ class App extends React.Component {
   loadTables(e){
     e.preventDefault();
     this.setState({animate:true});
-    setTimeout(()=>{this.setState({animate:false}); this.fetchTimes(e);}, 500);
+    setTimeout(()=>{this.setState({animate:false}); this.fetchTimes(e);}, 800);
 
   }
 
