@@ -18,9 +18,15 @@ class App extends React.Component {
       time: null, 
       date: null,
       availability: [],
-      showTables: false
+      showTables: false,
+      bookingCount: 0
     }
   }
+
+  componentWillMount(){
+    this.fetchBookings();
+  }
+
 
   updateTime(time){
     this.setState({time:time});
@@ -34,6 +40,7 @@ class App extends React.Component {
   fetchTimes(e){
 
     e.preventDefault();
+
     $.ajax({
       url: window.location.pathname + 'reservations',
       method: 'GET',
@@ -46,8 +53,25 @@ class App extends React.Component {
       error: (error)=>{
         console.log('Error! Data was NOT received:', error);
       }
-
     });   
+  }
+
+  fetchBookings(){
+
+    $.ajax({
+      url: window.location.pathname + 'bookings',
+      method: 'GET',
+      contentType: 'application/json',
+      success: (data)=>{
+        console.log('Success! Booking data  received:', data);
+
+        let day = new Date(this.state.date).getUTCDate();
+        this.setState({bookingCount:data[day-1].bookings_count}); //set booking count from server
+      },
+      error: (error)=>{
+        console.log('Error! Data was NOT received:', error);
+      }
+    }); 
 
   }
 
@@ -65,6 +89,7 @@ class App extends React.Component {
                   <button className="findtable" onClick={this.fetchTimes.bind(this)}>Find a Table</button>
                 </form>
                 {this.state.showTables && <Availability tables={this.state.availability}/>}
+                <div className="bookingcount"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>{` Booked ${this.state.bookingCount} times today`}</div>
             </div>);
   }
 }
