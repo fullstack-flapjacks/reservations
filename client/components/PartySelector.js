@@ -12,7 +12,6 @@ var PartySelector = ()=>{
               {options.map((val)=>(<option value={val}> {val} </option>))}
             </select>
         </div>);
-
 }
 
 export default PartySelector;

@@ -35,6 +35,7 @@ router.get('/:id/reservations', (req,res)=>{
 
 //Route requests for specific restaurant bookings count
 router.get('/:id/bookings', (req,res)=>{
+
   reservations.bookings(req.params.id, res, (data)=>{
     //send back booking times
     res.send(data.bookings);
