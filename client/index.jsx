@@ -19,7 +19,8 @@ class App extends React.Component {
       date: null,
       availability: [],
       showTables: false,
-      bookingCount: 0
+      bookingCount: 0,
+      animate: false
     }
   }
 
@@ -72,6 +73,13 @@ class App extends React.Component {
         console.log('Error! Data was NOT received:', error);
       }
     }); 
+  }
+  
+  //handles logic for animation and table availability fetching
+  loadTables(e){
+    e.preventDefault();
+    this.setState({animate:true});
+    setTimeout(()=>{this.setState({animate:false}); this.fetchTimes(e);}, 500);
 
   }
 
@@ -86,7 +94,8 @@ class App extends React.Component {
                       <TimeSelector changeTime={this.updateTime.bind(this)}/>
                     </div>
                   </div>
-                  <button className="findtable" onClick={this.fetchTimes.bind(this)}>Find a Table</button>
+                  <button className="findtable" onClick={(e)=>{this.loadTables(e);}} >Find a Table</button>
+                  <div className={this.state.animate ? '' : 'hide'} id="loader"></div>
                 </form>
                 {this.state.showTables && <Availability tables={this.state.availability}/>}
                 <div className="bookingcount"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>{` Booked ${this.state.bookingCount} times today`}</div>
