@@ -115,4 +115,23 @@ select#timeselector, input#datepicker, select#party-size{
   font-size: 13px;
 }
 
+#loader {
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #DA3743; /* Open Table Red */
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    animation: spin 0.5s linear infinite;
+    margin: 0px auto;
+    margin-bottom: 12px;
+    text-align: center;
+}
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hide{
+  display:none;
+}
