@@ -26,7 +26,7 @@ var randomMinutes = function randomMinutes() {
 var initializeBookings = function(restaurant, day) {
   restaurant.bookings.push({
     day: day,
-    bookings_count: 0
+    bookings_count: randomInt(0, 50)
   });
 }
 
