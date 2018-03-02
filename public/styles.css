@@ -9,6 +9,10 @@
   padding-bottom: 7px
 }
 
+span.title{
+  font-size: 20px;
+}
+
 .reservation-widget{
   width: 300px;
   margin-top: 10px;
