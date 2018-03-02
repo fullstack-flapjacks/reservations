@@ -15,17 +15,25 @@ class DatePicker extends React.Component {
   }
  
   handleChange(event){
-    this.setState({date: event.target.value });
+    this.setState({date: event /*event.target.value*/ });
   }
 
   render(){
+
+    //handle jquery UI date picker and triggers
+    let context = this;
     $(function(){
-      $('#datepicker').datepicker();
+      $('#datepicker').datepicker({
+        onSelect: (dateText)=> {
+          context.handleChange(dateText); //change date in model
+          context.props.changeDate(dateText); //trigger a date change in main app
+        }
+      });
     });
 
     return(<div>
             <label for="datepicker" className="form-datepicker"> Date </label>
-                <input value={this.state.date} onClick={(event)=>{this.handleChange(event); this.props.changeDate(event.target.value)}} className="custom-select datepicker" id="datepicker"/>
+                <input value={this.state.date} className="custom-select datepicker" id="datepicker"/>
           </div>);
   }
 
