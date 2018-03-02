@@ -135,3 +135,24 @@ select#timeselector, input#datepicker, select#party-size{
 .hide{
   display:none;
 }
+
+a.confirmation{
+ text-decoration: none;
+}
+
+
+.confirmed{
+  display: block;
+  margin: 0px auto;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.confirmation-message{
+  font-size: 50px;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+  left: 250px;
+}
