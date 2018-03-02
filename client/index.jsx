@@ -38,9 +38,7 @@ class App extends React.Component {
     console.log(date);
   }
 
-  fetchTimes(e){
-
-    e.preventDefault();
+  fetchTimes(){
 
     $.ajax({
       url: window.location.pathname + 'reservations',
@@ -79,7 +77,7 @@ class App extends React.Component {
   loadTables(e){
     e.preventDefault();
     this.setState({animate:true});
-    setTimeout(()=>{this.setState({animate:false}); this.fetchTimes(e);}, 800);
+    setTimeout(()=>{this.setState({animate:false}); this.fetchTimes();}, 800);
 
   }
 
