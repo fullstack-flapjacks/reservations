@@ -20,6 +20,7 @@ router.get('/:id/bookings', (req,res)=>{
   });
 });
 
+
 app.get('*', (req,res)=>{
   res.status(404).sendFile(path.join(__dirname, '../public/404.html'));
 });
