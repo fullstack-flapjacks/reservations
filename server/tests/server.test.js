@@ -10,15 +10,15 @@ describe('Server side tests', () => {
     expect(response.statusCode).toBe(404);
   });
   test('GET r/rest_id/reservations should respond with an array ', async () => {
-    const response = await request(app).get('/r/5/reservations');
+    const response = await request(app).get('/r/10/reservations').query(JSON.stringify({ date: '3/2/2018', time:'20:00' }));
     expect(Array.isArray(response.body)).toBe(true);
   });
-   test('GET r/rest_id/reservations should contain at least 100 reservations ', async () => {
-    const response = await request(app).get('/r/5/reservations');
-    expect(response.body.length).toBeGreaterThanOrEqual(100);
+   test('GET r/rest_id/reservations should contain at least 1 reservation (for this particular restaurant/day) ', async () => {
+    const response = await request(app).get('/r/10/reservations').query(JSON.stringify({ date: '3/2/2018', time:'20:00' }));
+    expect(response.body.length).toBeGreaterThanOrEqual(1);
   });
   test('GET r/rest_id/reservations should contain Day, Hour, Minute Properties ', async () => {
-    const response = await request(app).get('/r/7/reservations');
+    const response = await request(app).get('/r/10/reservations').query(JSON.stringify({ date: '3/2/2018', time:'20:00' }));
     const reservation = response.body[0];
     expect(reservation).toHaveProperty('day');
     expect(reservation).toHaveProperty('hour');

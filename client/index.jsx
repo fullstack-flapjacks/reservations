@@ -1,10 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDom from 'react-dom';
+import App from './components/App';
 
-class App extends React.Component {
-  render () {
-    return <p> Hello World! This is your reservation component</p>;
-  }
-}
-
-render(<App/>, document.getElementById('reservations'));
+ReactDom.render(<App />, document.getElementById('reservations')); 
