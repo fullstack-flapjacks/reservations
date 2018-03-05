@@ -2,6 +2,7 @@ const mongoose = require('mongoose'); // include DB object
 
 mongoose.connect('mongodb://localhost/restaurants');
 
+
 const availabilitySchema = mongoose.Schema({
   id: {type:Number, unique: true},
   availability: [{
