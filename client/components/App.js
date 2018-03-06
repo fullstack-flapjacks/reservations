@@ -39,9 +39,11 @@ class App extends React.Component {
   }
 
   fetchTimes(){
-
+    const path = window.location.pathname;
+    const pathId = path.split('/')[2];
+    
     $.ajax({
-      url: window.location.pathname + 'reservations',
+      url: `http://localhost:2003/r/${pathId}/reservations`,
       method: 'GET',
       contentType: 'application/json',
       data: JSON.stringify(this.state),
@@ -59,9 +61,11 @@ class App extends React.Component {
   }
 
   fetchBookings(){
+    const path = window.location.pathname;
+    const pathId = path.split('/')[2];
 
     $.ajax({
-      url: window.location.pathname + 'bookings',
+      url: `http://localhost:2003/r/${pathId}/bookings`,
       method: 'GET',
       contentType: 'application/json',
       success: (data)=>{
