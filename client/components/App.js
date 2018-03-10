@@ -12,7 +12,7 @@ const PATH = window.PATH = CONFIG[ENV].HOST + ":" + CONFIG[ENV].PORT;
 
 window.$ = window.jQuery = $;
 
-class App extends React.Component {
+class Reservations extends React.Component {
   
   constructor(props){
     super(props);
@@ -114,4 +114,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Reservations;
